@@ -7,6 +7,7 @@ int main(){
     char fileName[30];
     FILE *fNames,*fCurrent;
     char *line = NULL,command[100];
+    char charset[] = "abcd";
     char letters3[3];
     size_t len = 0;
     //size_t read;
@@ -16,12 +17,12 @@ int main(){
         system("crunch 3 3 abcd -o fileNames.lst");
     else printf("fileNames.lst already exists.\n");
     fNames = fopen("./fileNames.lst","r");
-    i=0;
     while (fgets(line, line_size, fNames) != NULL)  {
         strtok(line, "\n");
-        printf("\t%d",++i);
         printf("Making File: %s.lst\n",line);
-        strcpy(command, "crunch 8 8 -t ");
+        strcpy(command, "crunch 8 8 ");
+        strcat(command, charset);
+        strcat(command, " -t ");
         strcat(command, line);
         strcpy(command, strcat(command," -o ./wordlists/"));
         //strcat(command, strcat(command,line));
