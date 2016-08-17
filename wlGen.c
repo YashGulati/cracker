@@ -24,9 +24,9 @@ int main(){
         strcat(command, charset);
         strcat(command, " -t ");
         strcat(command, line);
-        strcpy(command, strcat(command," -o ./wordlists/"));
-        //strcat(command, strcat(command,line));
-        //strcat(command, strcat(command,".lst"));
+        strcat(command," -o ./wordlists/");
+        strcat(command, line);
+        strcat(command,"_8.lst");
         puts(command);
         memset(command, 0, 100);
         //system(command);
