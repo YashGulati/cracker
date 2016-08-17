@@ -16,9 +16,10 @@ int main(){
         system("crunch 3 3 abcd -o fileNames.lst");
     else printf("fileNames.lst already exists.\n");
     fNames = fopen("./fileNames.lst","r");
-
+    i=0;
     while (fgets(line, line_size, fNames) != NULL)  {
         strtok(line, "\n");
+        printf("\t%d",++i);
         printf("Making File: %s.lst\n",line);
         strcpy(command, "crunch 8 8 -t ");
         strcat(command, line);
