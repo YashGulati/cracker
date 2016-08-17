@@ -20,11 +20,9 @@ int main(){
     while (fgets(line, line_size, fNames) != NULL)  {
         strtok(line, "\n");
         printf("Making File: %s.lst\n",line);
-
         strcpy(command, "crunch 8 8 -t ");
-
-        strcpy(command, line);
-        strcpy(command, strcat(command," -o"));
+        strcat(command, line);
+        strcat(command, strcat(command," -o"));
         puts(command);
         strcpy(line,strcat(line,".lst"));
         fCurrent = fopen(line,"w");
