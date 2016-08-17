@@ -13,10 +13,10 @@ int main(){
     if( access( "fileNames.lst", F_OK ) == -1 )
         system("crunch 3 3 abcdefghijklmnopqrstuvwxyz -o fileNames.lst");
     else printf("fileNames.lst already exists.\n");
-    fp = fopen("./fileNames.lst",'r');
+    fp = fopen("./fileNames.lst","r");
 
 while (fgets(line, line_size, fp) != NULL)  {
-    printf(line);
+    printf("%s",line);
 }
     return 0;
 }
