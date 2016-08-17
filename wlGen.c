@@ -18,7 +18,7 @@ int main(){
 
 while (fgets(line, line_size, fp) != NULL)  {
     printf("%s",line);
-    system("read -n1 -r -p \"Press space to continue...\" key")
+    system("read -n1 -r -p \"Press space to continue...\" key");
 }
     return 0;
 }
