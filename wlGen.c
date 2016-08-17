@@ -18,7 +18,7 @@ int main(){
     fNames = fopen("./fileNames.lst","r");
 
     while (fgets(line, line_size, fNames) != NULL)  {
-        line[strcspn(line, "\n")] = '\0';
+        line[strcspn(li‌​ne, "\n")] = '\0';
         printf("Making File: %s.lst\n",line);
         strcpy(command, "crunch 8 8 -t ");
         strcat(command, line);
