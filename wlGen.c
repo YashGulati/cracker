@@ -20,6 +20,7 @@ int main(){
     while (fgets(line, line_size, fNames) != NULL)  {
         printf("Making File: %s.lst\n",line);
         strcpy(command, "crunch 8 8 -t ");
+        strtok(line, "\n");
         strcpy(command, line);
         strcpy(command, strcat(command," -o"));
         puts(command);
