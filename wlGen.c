@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include<conio.h>
+#include<curses.h>
 #include<unistd.h>
 #include<stdlib.h>
 int main(){
