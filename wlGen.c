@@ -22,11 +22,11 @@ int main(){
         printf("Making File: %s.lst\n",line);
         strcpy(command, "crunch 8 8 -t ");
         strcat(command, line);
-        strcat(command, strcat(command," -o"));
+        strcat(command, strcat(command," -o ./wordlists/"));
+        strcat(command, strcat(command,line));
+        strcat(command, strcat(command,".lst"));
         puts(command);
-        fCurrent = fopen(line,"w");
         //system(command);
-        fclose(fCurrent);
         //system("read -r -p \"Press space to continue...\" key");
 }
 
