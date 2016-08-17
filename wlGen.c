@@ -18,7 +18,8 @@ int main(){
     fNames = fopen("./fileNames.lst","r");
 
     while (fgets(line, line_size, fNames) != NULL)  {
-        printf("Making file %s",line);
+        printf("Making File: %s",line);
+        strcpy(line,strcat(line,".lst"));
         fCurrent = fopen(line,"w");
         strcpy(command, "crunch 8 8");
         puts(command);
