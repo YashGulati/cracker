@@ -6,7 +6,7 @@
 int main(){
     int i;
     char fileName[30];
-    FILE *fNames,*fCurrent,command[100];
+    FILE *fNames,*fCurrent,*command=(char*)malloc(100);
     char *line = NULL;
     size_t len = 0;
     //size_t read;
