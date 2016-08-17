@@ -17,6 +17,7 @@ int main(){
 
 while (fgets(line, line_size, fp) != NULL)  {
     printf("%s",line);
+    getch();
 }
     return 0;
 }
