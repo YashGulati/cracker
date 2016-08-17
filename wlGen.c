@@ -20,8 +20,9 @@ int main(){
     while (fgets(line, line_size, fNames) != NULL)  {
         printf("Making file %s",line);
         fCurrent = fopen(line,"w");
-        strcpy(command,strcat(strcat("crunch 8 8 abcd -t ",line),"@@@@@"));
-        system(command);
+        strcpy(command, "crunch 8 8");
+        puts(command);
+        //system(command);
         fclose(fCurrent);
         //system("read -r -p \"Press space to continue...\" key");
 }
