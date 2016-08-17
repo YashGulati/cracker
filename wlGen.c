@@ -3,6 +3,7 @@
 #include<unistd.h>
 #include<stdlib.h>
 int main(){
+    int i;
     char fileName[30];
     FILE *fp;
     char *line = NULL;
@@ -17,7 +18,7 @@ int main(){
 
 while (fgets(line, line_size, fp) != NULL)  {
     printf("%s",line);
-    getch();
+    i = getch();
 }
     return 0;
 }
