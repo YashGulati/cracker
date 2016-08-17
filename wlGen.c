@@ -21,7 +21,7 @@ int main(){
         printf("Making File: %s",line);
         strcpy(command, "crunch 8 8 -t ");
         for(i=0;i<3;i++)
-        strcpy(command, strcat(command,*(line+i));
+        strcpy(command, strcat(command,(char)*(line+i));
         strcpy(command, strcat(command,"\b\b"));
         strcpy(command, strcat(command," -o"));
         puts(command);
