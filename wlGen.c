@@ -6,7 +6,7 @@ int main(){
     int i;
     char fileName[30];
     FILE *fNames,*fCurrent;
-    char *line = NULL,command[100];
+    char *line = NULL,command[100],comMegaCopy[100];
     char charset[] = "abcd";
     char letters3[3];
     size_t len = 0;
@@ -24,11 +24,16 @@ int main(){
         strcat(command, charset);
         strcat(command, " -t ");
         strcat(command, line);
-        strcat(command," -o ./wordlists/");
+        strcat(command, "@@@@@");
+        strcat(command," -o ./Wordlists/");
         strcat(command, line);
         strcat(command,"_8.lst");
         puts(command);
         system(command);
+        strcpy(comMegaCopy, "megacopy --local ./Wordlists --remote /Root/Wordlists");
+        system(comMegaCopy);
+        system("rm ./Wordlists/*");
+        memset(comMegaCopy, 0, 100);
         memset(command, 0, 100);
         //system(command);
         //system("read -r -p \"Press space to continue...\" key");
