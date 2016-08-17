@@ -19,7 +19,7 @@ int main(){
 
     while (fgets(line, line_size, fNames) != NULL)  {
         printf("Making File: %s",line);
-        memcpy(line, line, strlen(line) - 3);
+        line[3] = '\0';
         strcpy(line,strcat(line,".lst"));
         fCurrent = fopen(line,"w");
         strcpy(command, "crunch 8 8");
