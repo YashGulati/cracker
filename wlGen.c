@@ -26,6 +26,7 @@ int main(){
         //strcat(command, strcat(command,line));
         //strcat(command, strcat(command,".lst"));
         puts(command);
+        memset(command, 0, 100);
         //system(command);
         //system("read -r -p \"Press space to continue...\" key");
 }
