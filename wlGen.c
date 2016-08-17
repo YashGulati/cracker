@@ -22,7 +22,7 @@ int main(){
         strcpy(command, "crunch 8 8 -t ");
         strcpy(command, line);
         strcpy(command, strcat(command," -o"));
-        //puts(command);
+        puts(command);
         strcpy(line,strcat(line,".lst"));
         fCurrent = fopen(line,"w");
         //system(command);
