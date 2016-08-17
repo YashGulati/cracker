@@ -19,11 +19,12 @@ int main(){
 
     while (fgets(line, line_size, fNames) != NULL)  {
         printf("Making File: %s",line);
-        strcpy(line,strcat(line,".lst"));
-        fCurrent = fopen(line,"w");
         strcpy(command, "crunch 8 8 -t ");
         strcpy(command, strcat(command,line));
+        strcpy(command, strcat(command,"\b"));
         puts(command);
+        strcpy(line,strcat(line,".lst"));
+        fCurrent = fopen(line,"w");
         //system(command);
         fclose(fCurrent);
         //system("read -r -p \"Press space to continue...\" key");
