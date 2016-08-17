@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<ncurses.h>
 #include<unistd.h>
 #include<stdlib.h>
 #include<string.h>
@@ -8,6 +7,7 @@ int main(){
     char fileName[30];
     FILE *fNames,*fCurrent;
     char *line = NULL,command[100];
+    char letters3[3];
     size_t len = 0;
     //size_t read;
     const size_t line_size = 300;
@@ -20,7 +20,8 @@ int main(){
     while (fgets(line, line_size, fNames) != NULL)  {
         printf("Making File: %s",line);
         strcpy(command, "crunch 8 8 -t ");
-        strcpy(command, strcat(command,line));
+        for(i=0;i<3;i++) letters3[i] = *(line + i);
+        strcpy(command, strcat(command,letters3));
         strcpy(command, strcat(command,"\b\b"));
         strcpy(command, strcat(command," -o"));
         puts(command);
