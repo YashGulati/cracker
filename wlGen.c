@@ -2,6 +2,7 @@
 #include<ncurses.h>
 #include<unistd.h>
 #include<stdlib.h>
+#include<string.h>
 int main(){
     int i;
     char fileName[30];
