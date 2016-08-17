@@ -18,13 +18,12 @@ int main(){
     fNames = fopen("./fileNames.lst","r");
 
     while (fgets(line, line_size, fNames) != NULL)  {
-        strtok(line, "\n");
+        line[strcspn(line, "\n")] = '\0';
         printf("Making File: %s.lst\n",line);
         strcpy(command, "crunch 8 8 -t ");
         strcat(command, line);
         strcat(command, strcat(command," -o"));
         puts(command);
-        strcpy(line,strcat(line,".lst"));
         fCurrent = fopen(line,"w");
         //system(command);
         fclose(fCurrent);
