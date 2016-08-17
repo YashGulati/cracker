@@ -22,7 +22,7 @@ int main(){
         printf("Making File: %s.lst\n",line);
         strcpy(command, "crunch 8 8 -t ");
         strcat(command, line);
-        strcat(command, strcat(command," -o ./wordlists/"));
+        strcpy(command, strcat(command," -o ./wordlists/"));
         //strcat(command, strcat(command,line));
         //strcat(command, strcat(command,".lst"));
         puts(command);
