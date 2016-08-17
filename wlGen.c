@@ -6,8 +6,8 @@
 int main(){
     int i;
     char fileName[30];
-    FILE *fNames,*fCurrent,*command=(char*)malloc(100);
-    char *line = NULL;
+    FILE *fNames,*fCurrent;
+    char *line = NULL,command[100];
     size_t len = 0;
     //size_t read;
     const size_t line_size = 300;
