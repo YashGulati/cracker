@@ -1,5 +1,7 @@
  length = 2
  working_formula = strlen(charset) *strlen(charset) + strlen(charset)
 
- length = 3
- working_formula = strlen(charset) *strlen(charset) * strlen(charset) + strlen(charset)
+ length = 3 
+ working_formula_may_be = strlen(charset) *strlen(charset) * strlen(charset) + strlen(charset)
+
+ 
