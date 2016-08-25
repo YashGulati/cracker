@@ -37,8 +37,8 @@ int main(){
                 pos[length-3] = 0;
             }
         }
-        printf("%c",charset[pos[length-3]]);
-        printf("%c",charset[pos[length-2]]);
+        if(flag[length-3]!= -1) printf("%c",charset[pos[length-3]]);
+        if(flag[length-2]!= -1) printf("%c",charset[pos[length-2]]);
         printf("%c\n",charset[pos[length-1]++]);
     }
     return 0;
