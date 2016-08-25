@@ -1,4 +1,6 @@
 # cracker
 
-Inshu
-  firstwl3.c pe kaam krna h. combination pattern.txt me ye pta chalega ki kitne words create honge.
+This branch is made for the performance purpose.
+It is a time and code trade-off.
+
+This branch can only support words of few characters.
