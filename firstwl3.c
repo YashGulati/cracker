@@ -21,7 +21,6 @@ int main(){
     memset(pos,-1,sizeof(pos));
     memset(pos,0,length*4);
     memset(flag,-1,sizeof(flag));
-
     total_words = wordCount(charset_length,length);
     for(i=0;i<total_words;i++){
         if(dbg==1) printf("%d: ",i);
@@ -54,10 +53,14 @@ int main(){
                 }
             }
         }
-        if( length>=4 && flag[length-4]!= -1 ){ // if#3
+        if( length>=4 && flag[length-4]!= -1 ){ // if#4
             flag[length-4] = 2;
             if(pos[length-4] == charset_length ){
                 pos[length-4] = 0;
+                if(pos[length-5] != -1 ){
+                    if(flag[length-5] ==2 ) pos[length-5]++;
+                    flag[length-5] = 1;
+                }
             }
         }
         printer();
