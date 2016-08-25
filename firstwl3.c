@@ -1,17 +1,22 @@
-// if#n => if number n
 #include<stdio.h>
 #include<string.h>
+#include<math.h>
+char charset[] = "abcd";
+int length = 4;
+int wc=0;
+int wordCount(charlen,wordlen){
+    if(wordlen == 1) return strlen(charset);
+    return pow(strlen(charset),wordlen) + wordCount(charlen,wordlen-1);
+}
 int main(){
-    int i,total_words, dbg=1;
-    char charset[] = "abcd";
-    int length = 4, charset_length=strlen(charset);
+    int i,total_words, dbg=0;
     int pos[10],flag[10];
-    memset(pos,-1,sizeof(pos)); // fill pos with -1
-    memset(pos,0,length*4); // fill pos with 0 till length
-    memset(flag,-1,sizeof(flag)); // fill flag with -1
-    total_words = charset_length*charset_length + charset_length;
-
-    for(i=0;i<charset_length*charset_length*charset_length*charset_length + charset_length*charset_length*charset_length + strlen(charset) *strlen(charset) + strlen(charset);i++){
+    int charset_length = strlen(charset);
+    memset(pos,-1,sizeof(pos));
+    memset(pos,0,length*4);
+    memset(flag,-1,sizeof(flag));
+    total_words = wordCount(charset_length,length);
+    for(i=0;i<total_words;i++){
         if(dbg==1) printf("%d: ",i);
          if( length>=1 ){ // if#1
             if(pos[length-1] == charset_length ){
