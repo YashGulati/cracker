@@ -2,16 +2,17 @@
 #include<stdio.h>
 #include<string.h>
 int main(){
-    int i,total_words;
+    int i,total_words, dbg=1;
     char charset[] = "abcd";
-    int length = 3, charset_length=strlen(charset);
+    int length = 4, charset_length=strlen(charset);
     int pos[10],flag[10];
     memset(pos,-1,sizeof(pos)); // fill pos with -1
     memset(pos,0,length*4); // fill pos with 0 till length
     memset(flag,-1,sizeof(flag)); // fill flag with -1
     total_words = charset_length*charset_length + charset_length;
 
-    for(i=0;i<charset_length*charset_length*charset_length + strlen(charset) *strlen(charset) + strlen(charset);i++){
+    for(i=0;i<charset_length*charset_length*charset_length*charset_length + charset_length*charset_length*charset_length + strlen(charset) *strlen(charset) + strlen(charset);i++){
+        if(dbg==1) printf("%d: ",i);
          if( length>=1 ){ // if#1
             if(pos[length-1] == charset_length ){
                 pos[length-1] = 0;
@@ -35,8 +36,19 @@ int main(){
             flag[length-3] = 2;
             if(pos[length-3] == charset_length ){
                 pos[length-3] = 0;
+                if(pos[length-4] != -1 ){
+                    if(flag[length-4] ==2 ) pos[length-4]++;
+                    flag[length-4] = 1;
+                }
             }
         }
+        if( length>=4 && flag[length-4]!= -1 ){ // if#3
+            flag[length-4] = 2;
+            if(pos[length-4] == charset_length ){
+                pos[length-4] = 0;
+            }
+        }
+        if(flag[length-4]!= -1) printf("%c",charset[pos[length-4]]);
         if(flag[length-3]!= -1) printf("%c",charset[pos[length-3]]);
         if(flag[length-2]!= -1) printf("%c",charset[pos[length-2]]);
         printf("%c\n",charset[pos[length-1]++]);
