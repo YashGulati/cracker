@@ -18,13 +18,8 @@ int main(){
             if(flag[length-p]!= -1) printf("%c",charset[pos[length-p]]);
         printf("%c\n",charset[pos[length-1]++]);
     }
-    memset(pos,-1,sizeof(pos));
-    memset(pos,0,length*4);
-    memset(flag,-1,sizeof(flag));
-    total_words = wordCount(charset_length,length);
-    for(i=0;i<total_words;i++){
-        if(dbg==1) printf("%d: ",i);
-         if( length>=1 ){ // if#1
+    void ifer(){
+     if( length>=1 ){ // if#1
             if(pos[length-1] == charset_length ){
                 pos[length-1] = 0;
                 if(pos[length-2] != -1 ){
@@ -63,6 +58,14 @@ int main(){
                 }
             }
         }
+    }
+    memset(pos,-1,sizeof(pos));
+    memset(pos,0,length*4);
+    memset(flag,-1,sizeof(flag));
+    total_words = wordCount(charset_length,length);
+    for(i=0;i<total_words;i++){
+        if(dbg==1) printf("%d: ",i);
+        ifer();
         printer();
     }
     return 0;
