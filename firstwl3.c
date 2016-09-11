@@ -45,16 +45,25 @@ int main(int args, char* argv[]){
         }
     }
     }
+    void perform(){
+        for(i=0;i<total_words;i++){
+        if(dbg==1) printf("%d: ",i);
+        ifer();
+        printer();
+        if(dbg==1 && i%28==0) getch();
+    }
+    }
     void usage(){
-        printf("\n Created by: Yash Gulati\n\tUsage:\n\tfirstwl3 [-c|-d] -l <length>\n");
+        printf("\nfirstwl3 v1.0\n\n Created by: Yash Gulati\n\tUsage:\n\tfirstwl3 [-c|-d] -l <length>\n");
         exit(0);
     }
-    if(args == 0 ) usage();
+    if(args == 1 ) usage();
     for(i=1;i<args;i++){
         if(strcmp(argv[i],"-v")==0 || strcmp(argv[i],"-h")==0 ){ usage(); }
-        if(strcmp(argv[i],"-d")==0){ dbg=1; i++; }
-        if(strcmp(argv[i],"-c")==0){ count_only=1; i++; }
+        if(strcmp(argv[i],"-d")==0){ if(args==2) usage(); dbg=1; i++; }
+        if(strcmp(argv[i],"-c")==0){ if(args==2) usage(); count_only=1; i++; }
         if(strcmp(argv[i],"-l")==0) { length=atoi(argv[++i]); i++; }
+        else usage();
     }
     if(dbg){
     printf("You typed the command: ");
@@ -68,12 +77,7 @@ int main(int args, char* argv[]){
     total_words = wordCount(charset_length,length);
     if(count_only) { printf("No. of Words will be: %d\nDo you want to continue (Y/N) default is N : ",total_words); count_only=getche(); printf("\n");
     if(count_only==(int)'N' || count_only==(int)'n' || count_only==13) return 0;  }
-    for(i=0;i<total_words;i++){
-        if(dbg==1) printf("%d: ",i);
-        ifer();
-        printer();
-        if(dbg==1 && i%28==0) getch();
-    }
+    perform();
     return 0;
 }
 
