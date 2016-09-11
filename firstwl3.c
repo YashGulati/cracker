@@ -10,7 +10,7 @@ int wordCount(charlen,wordlen){
     if(wordlen == 1) return strlen(charset);
     return pow(strlen(charset),wordlen) + wordCount(charlen,wordlen-1);
 }
-int main(){
+int main(int args, char* argv[]){
     int i,total_words, dbg=0, count_only=1;
     int pos[10],flag[10];
     int charset_length = strlen(charset);
@@ -43,13 +43,17 @@ int main(){
             }
         }
     }
+    } if(dbg){
+    printf("You typed the command: ");
+    for(i=0;i<args;i++)
+        printf("%s ",argv[i]);
     }
     memset(pos,-1,sizeof(pos));
     memset(pos,0,length*4);
     memset(flag,-1,sizeof(flag));
     total_words = wordCount(charset_length,length);
-    if(count_only) { printf("No. of Words will be: %d\nDo you want to continue (Y/N): ",total_words); scanf("%c",&count_only);
-    if(count_only==(int)'N' || count_only==(int)'n') return 0;  }
+    if(count_only) { printf("\nNo. of Words will be: %d\nDo you want to continue (Y/N) default is N : ",total_words); count_only=getche(); printf("\n");
+    if(count_only==(int)'N' || count_only==(int)'n' || count_only==13) return 0;  }
     for(i=0;i<total_words;i++){
         if(dbg==1) printf("%d: ",i);
         ifer();
