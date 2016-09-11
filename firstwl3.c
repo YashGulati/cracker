@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
 #include<math.h>
 char charset[] = "abcd";
 int length = 3 ;
@@ -44,21 +45,28 @@ int main(int args, char* argv[]){
         }
     }
     }
-
-    for(i=0;i<args;i++){
-        if(strcmp(argv[i],"-d")==0) dbg=1;
-        if(strcmp(argv[i],"-c")==0) count_only=1;
+    void usage(){
+        printf("\n Created by: Yash Gulati\n\tUsage:\n\tfirstwl3 [-c|-d] -l <length>\n");
+        exit(0);
+    }
+    if(args == 0 ) usage();
+    for(i=1;i<args;i++){
+        if(strcmp(argv[i],"-v")==0 || strcmp(argv[i],"-h")==0 ){ usage(); }
+        if(strcmp(argv[i],"-d")==0){ dbg=1; i++; }
+        if(strcmp(argv[i],"-c")==0){ count_only=1; i++; }
+        if(strcmp(argv[i],"-l")==0) { length=atoi(argv[++i]); i++; }
     }
     if(dbg){
     printf("You typed the command: ");
     for(i=0;i<args;i++)
         printf("%s ",argv[i]);
+    printf("\n");
     }
     memset(pos,-1,sizeof(pos));
     memset(pos,0,length*4);
     memset(flag,-1,sizeof(flag));
     total_words = wordCount(charset_length,length);
-    if(count_only) { printf("\nNo. of Words will be: %d\nDo you want to continue (Y/N) default is N : ",total_words); count_only=getche(); printf("\n");
+    if(count_only) { printf("No. of Words will be: %d\nDo you want to continue (Y/N) default is N : ",total_words); count_only=getche(); printf("\n");
     if(count_only==(int)'N' || count_only==(int)'n' || count_only==13) return 0;  }
     for(i=0;i<total_words;i++){
         if(dbg==1) printf("%d: ",i);
