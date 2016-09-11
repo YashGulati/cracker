@@ -2,14 +2,16 @@
 #include<string.h>
 #include<math.h>
 char charset[] = "abcd";
-int length = 8;
+int length = 3 ;
+int max_length;
+int min_length;
 int wc=0;
 int wordCount(charlen,wordlen){
     if(wordlen == 1) return strlen(charset);
     return pow(strlen(charset),wordlen) + wordCount(charlen,wordlen-1);
 }
 int main(){
-    int i,total_words, dbg=1;
+    int i,total_words, dbg=0, count_only=1;
     int pos[10],flag[10];
     int charset_length = strlen(charset);
     void printer(){
@@ -46,6 +48,8 @@ int main(){
     memset(pos,0,length*4);
     memset(flag,-1,sizeof(flag));
     total_words = wordCount(charset_length,length);
+    if(count_only) { printf("No. of Words will be: %d\nDo you want to continue (Y/N): ",total_words); scanf("%c",&count_only);
+    if(count_only==(int)'N' || count_only==(int)'n') return 0;  }
     for(i=0;i<total_words;i++){
         if(dbg==1) printf("%d: ",i);
         ifer();
