@@ -54,15 +54,14 @@ int main(int args, char* argv[]){
     }
     }
     void usage(){
-        printf("\nfirstwl3 v1.0\n\n Created by: Yash Gulati\n\tUsage:\n\tfirstwl3 [-c|-d] -l <length>\n");
+        printf("\nfirstwl3 v1.0\n\n Created by: Yash Gulati\n\tUsage:\n\tfirstwl3 [-d] [-c] -l <length>\n");
         exit(0);
     }
-    if(args == 1 ) usage();
+    if(args == 1 || args == 2 ) usage();
     for(i=1;i<args;i++){
-        if(strcmp(argv[i],"-v")==0 || strcmp(argv[i],"-h")==0 ){ usage(); }
-        if(strcmp(argv[i],"-d")==0){ if(args==2) usage(); dbg=1; i++; }
-        if(strcmp(argv[i],"-c")==0){ if(args==2) usage(); count_only=1; i++; }
-        if(strcmp(argv[i],"-l")==0) { length=atoi(argv[++i]); i++; }
+        if(strcmp(argv[i],"-d")==0){ dbg=1; i++; }
+        if(strcmp(argv[i],"-c")==0){ count_only=1; i++; }
+        if(i!=args && strcmp(argv[i],"-l")==0 ) { length=atoi(argv[++i]); i++; }
         else usage();
     }
     if(dbg){
