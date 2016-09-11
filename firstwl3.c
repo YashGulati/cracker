@@ -11,7 +11,7 @@ int wordCount(charlen,wordlen){
     return pow(strlen(charset),wordlen) + wordCount(charlen,wordlen-1);
 }
 int main(int args, char* argv[]){
-    int i,total_words, dbg=0, count_only=1;
+    int i,total_words, dbg=0, count_only=0;
     int pos[10],flag[10];
     int charset_length = strlen(charset);
     void printer(){
@@ -47,6 +47,7 @@ int main(int args, char* argv[]){
 
     for(i=0;i<args;i++){
         if(strcmp(argv[i],"-d")==0) dbg=1;
+        if(strcmp(argv[i],"-c")==0) count_only=1;
     }
     if(dbg){
     printf("You typed the command: ");
