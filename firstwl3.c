@@ -43,11 +43,16 @@ int main(int args, char* argv[]){
             }
         }
     }
-    } if(dbg){
+    }
+    if(dbg){
     printf("You typed the command: ");
     for(i=0;i<args;i++)
         printf("%s ",argv[i]);
     }
+    for(i=0;i<args;i++){
+        if(strcmp(argv[i],"-d")==0) dbg=1;
+    }
+
     memset(pos,-1,sizeof(pos));
     memset(pos,0,length*4);
     memset(flag,-1,sizeof(flag));
